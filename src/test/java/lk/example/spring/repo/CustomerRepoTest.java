@@ -43,13 +43,11 @@ class CustomerRepoTest {
         System.out.println(present);
 
         Customer customer = byId.get();
-        System.out.println(customer.toString());
+        System.out.print(customer.toString());
     }
 
     @Test
     public void deleteCustomer(){
-
+        customerRepo.deleteById("C-001");
     }
-
-
 }
