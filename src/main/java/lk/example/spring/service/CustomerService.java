@@ -1,13 +1,12 @@
 package lk.example.spring.service;
 
-import lk.example.spring.entity.Customer;
-
+import lk.example.spring.dto.CustomerDTO;
 import java.util.List;
 
 public interface CustomerService {
-    void saveCustomer(Customer entity);
+    void saveCustomer(CustomerDTO dto);
     void deleteCustomer(String id);
-    void updateCustomer(Customer entity);
-    Customer searchCustomer(String id);
-    List<Customer> getAllCustomers();
+    void updateCustomer(CustomerDTO dto);
+    CustomerDTO searchCustomer(String id);
+    List<CustomerDTO> getAllCustomers();
 }

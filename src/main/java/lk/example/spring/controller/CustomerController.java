@@ -1,6 +1,6 @@
 package lk.example.spring.controller;
 
-import lk.example.spring.entity.Customer;
+import lk.example.spring.dto.CustomerDTO;
 import lk.example.spring.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,18 +16,18 @@ public class CustomerController {
     CustomerService customerService;
 
     @GetMapping
-    public List<Customer> getAllCustomers() {
+    public List<CustomerDTO> getAllCustomers() {
         return customerService.getAllCustomers();
     }
 
     @PostMapping
-    public void saveCustomer(@ModelAttribute Customer customer){
-        customerService.saveCustomer(customer);
+    public void saveCustomer(@ModelAttribute CustomerDTO dto){
+        customerService.saveCustomer(dto);
     }
 
     @PutMapping
-    public void updateCustomer(@RequestBody Customer customer){
-        customerService.updateCustomer(customer);
+    public void updateCustomer(@RequestBody CustomerDTO dto){
+        customerService.updateCustomer(dto);
     }
 
     @DeleteMapping(params = {"id"})
@@ -36,7 +36,7 @@ public class CustomerController {
     }
 
     @GetMapping(path = "/{id}")
-    public Customer searchCustomer(@PathVariable String id){
+    public CustomerDTO searchCustomer(@PathVariable String id){
         return customerService.searchCustomer(id);
     }
 }
