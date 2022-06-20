@@ -53,7 +53,7 @@ public class Item {
         this.unitPrice = unitPrice;
     }
 
-/*    @Override
+    @Override
     public String toString() {
         return "Item{" +
                 "code='" + code + '\'' +
@@ -61,5 +61,5 @@ public class Item {
                 ", qtyOnHand=" + qtyOnHand +
                 ", unitPrice=" + unitPrice +
                 '}';
-    }*/
+    }
 }

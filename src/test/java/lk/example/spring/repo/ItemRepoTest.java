@@ -35,15 +35,7 @@ class ItemRepoTest {
 
     @Test
     public void searchItems(){
-        List<Item> all = itemRepo.findAll();
-        for (Item item : all) {
-            System.out.println(item.toString());
-        }
-    }
-
-    @Test
-    public void getAllItems(){
-        Optional<Item> id = itemRepo.findById("I-001");
+        Optional<Item> id = itemRepo.findById("I-002");
         boolean present = id.isPresent();
         System.out.println(present);
 
@@ -52,8 +44,26 @@ class ItemRepoTest {
     }
 
     @Test
+    public void getAllItems(){
+        List<Item> all = itemRepo.findAll();
+        for (Item item : all) {
+            System.out.println(item.toString());
+        }
+    }
+
+    @Test
     public void deleteItems(){
         itemRepo.deleteById("I-001");
+    }
+
+    @Test
+    public void updateItem(){
+        if (itemRepo.existsById("I-001")) {
+            Item item1 = new Item("I-001", "Signal", 10, 335.50);
+            itemRepo.save(item1);
+        } else {
+            throw new RuntimeException("No Such Item To Update");
+        }
     }
 
 }

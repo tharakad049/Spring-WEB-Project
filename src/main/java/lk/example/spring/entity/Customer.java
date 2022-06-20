@@ -53,7 +53,7 @@ public class Customer {
         this.salary = salary;
     }
 
-/*    @Override
+    @Override
     public String toString() {
         return "Customer{" +
                 "id='" + id + '\'' +
@@ -61,5 +61,5 @@ public class Customer {
                 ", address='" + address + '\'' +
                 ", salary=" + salary +
                 '}';
-    }*/
+    }
 }

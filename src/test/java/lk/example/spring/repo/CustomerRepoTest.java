@@ -26,7 +26,11 @@ class CustomerRepoTest {
     @Test
     public void saveCustomer(){
         Customer customer1 = new Customer("C-001", "Dilan", "Kataragama", 1000000.00);
+        Customer customer2 = new Customer("C-002", "Dilan", "Kataragama", 1000000.00);
+        Customer customer3 = new Customer("C-003", "Dilan", "Kataragama", 1000000.00);
         customerRepo.save(customer1);
+        customerRepo.save(customer2);
+        customerRepo.save(customer3);
     }
 
     @Test
@@ -49,5 +53,16 @@ class CustomerRepoTest {
     @Test
     public void deleteCustomer(){
         customerRepo.deleteById("C-001");
+    }
+
+    @Test
+    public void updateCustomer(){
+        if (customerRepo.existsById("C009")) {
+            Customer customer1 = new Customer("C-001", "Dilan", "Kataragama", 1000000.00);
+            customerRepo.save(customer1);
+        }else{
+            throw new RuntimeException("No Such Customer To Update");
+        }
+
     }
 }
