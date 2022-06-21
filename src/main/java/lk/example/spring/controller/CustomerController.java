@@ -2,7 +2,9 @@ package lk.example.spring.controller;
 
 import lk.example.spring.dto.CustomerDTO;
 import lk.example.spring.service.CustomerService;
+import lk.example.spring.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,28 +17,31 @@ public class CustomerController {
     @Autowired
     CustomerService customerService;
 
-    @GetMapping
-    public List<CustomerDTO> getAllCustomers() {
-        return customerService.getAllCustomers();
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil getAllCustomers() {
+        return new ResponseUtil(200, "Ok", customerService.getAllCustomers());
     }
 
-    @PostMapping
-    public void saveCustomer(@ModelAttribute CustomerDTO dto){
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil saveCustomer(@ModelAttribute CustomerDTO dto){
         customerService.saveCustomer(dto);
+        return new ResponseUtil(200, "Ok",null);
     }
 
-    @PutMapping
-    public void updateCustomer(@RequestBody CustomerDTO dto){
+    @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil updateCustomer(@RequestBody CustomerDTO dto){
         customerService.updateCustomer(dto);
+        return new ResponseUtil(200, "Ok", null);
     }
 
-    @DeleteMapping(params = {"id"})
-    public void deleteCustomer(@RequestParam String id){
+    @DeleteMapping(params = {"id"}, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil deleteCustomer(@RequestParam String id){
         customerService.deleteCustomer(id);
+        return new ResponseUtil(200, "UDeleted", null);
     }
 
-    @GetMapping(path = "/{id}")
-    public CustomerDTO searchCustomer(@PathVariable String id){
-        return customerService.searchCustomer(id);
+    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil searchCustomer(@PathVariable String id){
+        return new ResponseUtil(200, "Ok", customerService.searchCustomer(id));
     }
 }
