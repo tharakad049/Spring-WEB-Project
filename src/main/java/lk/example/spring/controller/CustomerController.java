@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("customer")
 @CrossOrigin
@@ -37,7 +35,7 @@ public class CustomerController {
     @DeleteMapping(params = {"id"}, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil deleteCustomer(@RequestParam String id){
         customerService.deleteCustomer(id);
-        return new ResponseUtil(200, "UDeleted", null);
+        return new ResponseUtil(200, "Deleted", null);
     }
 
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)

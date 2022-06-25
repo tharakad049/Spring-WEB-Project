@@ -1,12 +1,11 @@
 package lk.example.spring.controller;
 
 import lk.example.spring.dto.ItemDTO;
-import lk.example.spring.entity.Item;
 import lk.example.spring.service.ItemService;
+import lk.example.spring.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("item")
@@ -16,28 +15,31 @@ public class ItemController {
     @Autowired
     ItemService itemService;
 
-    @GetMapping
-    public List<ItemDTO> getAllItem(){
-        return itemService.getAllItems();
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil getAllItem(){
+        return new ResponseUtil(200, "Ok", itemService.getAllItems());
     }
 
-    @PostMapping
-    public void saveItem(@ModelAttribute ItemDTO dto){
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil saveItem(@ModelAttribute ItemDTO dto){
         itemService.saveItem(dto);
+        return new ResponseUtil(200, "Ok", null);
     }
 
-    @PutMapping
-    public void updateItem(@ModelAttribute ItemDTO dto){
+    @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil updateItem(@ModelAttribute ItemDTO dto){
         itemService.updateItem(dto);
+        return new ResponseUtil(200, "Ok", null);
     }
 
-    @GetMapping(path = "/{code}")
-    public ItemDTO searchItem(@PathVariable String code){
-        return itemService.searchItem(code);
+    @GetMapping(path = "/{code}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil searchItem(@PathVariable String code){
+        return new ResponseUtil(200, "Ok", itemService.searchItem(code));
     }
 
-    @DeleteMapping(params = {"code"})
-    public void deleteItem(@RequestParam String code){
+    @DeleteMapping(params = {"code"}, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil deleteItem(@RequestParam String code){
         itemService.deleteItem(code);
+        return new ResponseUtil(200, "Deleted", null);
     }
 }
