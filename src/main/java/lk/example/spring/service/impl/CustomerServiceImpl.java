@@ -22,14 +22,14 @@ public class CustomerServiceImpl implements CustomerService {
     private CustomerRepo repo;
 
     @Override
-    public void saveCustomer(CustomerDTO dto){
-        if (!repo.existsById(dto.getId())){
+    public void saveCustomer(CustomerDTO dto) {
+        if (!repo.existsById(dto.getId())) {
             Customer map = modelMapper.map(dto, Customer.class);
             repo.save(map);
-        }else
+        } else {
             throw new RuntimeException("Customer innawa...");
+        }
     }
-
     @Override
     public void deleteCustomer(String id){
         if (repo.existsById(id)) {

@@ -8,7 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("customer")
+@RequestMapping("api/v1/customer")
 @CrossOrigin
 public class CustomerController {
 

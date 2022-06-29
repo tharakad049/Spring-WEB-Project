@@ -8,7 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("item")
+@RequestMapping("api/v1/item")
 @CrossOrigin
 public class ItemController {
 
