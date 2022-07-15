@@ -3,6 +3,14 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../Front-End/Front-End.iml" filepath="$PROJECT_DIR$/../Front-End/Front-End.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Front-Ende/Front-Ende.iml" filepath="$PROJECT_DIR$/Front-Ende/Front-Ende.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MyApp_React/MyApp_React.iml" filepath="$PROJECT_DIR$/MyApp_React/MyApp_React.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Spring/Spring.iml" filepath="$PROJECT_DIR$/../Spring/Spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../SpringWeb/SpringWeb.iml" filepath="$PROJECT_DIR$/../SpringWeb/SpringWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../my-app/my-app.iml" filepath="$PROJECT_DIR$/../my-app/my-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-app-react/my-app-react.iml" filepath="$PROJECT_DIR$/my-app-react/my-app-react.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project/project.iml" filepath="$PROJECT_DIR$/project/project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../wwwx/wwwx.iml" filepath="$PROJECT_DIR$/../wwwx/wwwx.iml" />
     </modules>
   </component>
 </project>
